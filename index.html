@@ -212,8 +212,7 @@
         }
 
         .hero-content {
-            max-width: 780px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .badge {
@@ -754,8 +753,8 @@
                 </a>
 
                 <ul class="nav-links">
-                    <li><a href="#features" class="nav-link">Capabilities</a></li>
                     <li><a href="#modules" class="nav-link">Modules</a></li>
+                    <li><a href="#features" class="nav-link">Capabilities</a></li>
                     <li><a href="#pricing" class="nav-link">Pricing</a></li>
                     <li>
                         <a href="mailto:support@essaicloud.com" class="btn btn-primary">Contact Sales</a>
@@ -770,8 +769,8 @@
 
         <!-- Mobile Navigation Menu -->
         <div class="mobile-menu" id="mobile-menu">
-            <a href="#features" class="nav-link mobile-link">Capabilities</a>
             <a href="#modules" class="nav-link mobile-link">Modules</a>
+            <a href="#features" class="nav-link mobile-link">Capabilities</a>
             <a href="#pricing" class="nav-link mobile-link">Pricing</a>
             <a href="mailto:support@essaicloud.com" class="btn btn-primary">Contact Sales</a>
         </div>
@@ -795,42 +794,6 @@
                         <a href="mailto:support@essaicloud.com?subject=ESSAI%20Cloud%20Platform%20Inquiry"
                             class="btn btn-primary">Contact Sales</a>
                         <a href="#features" class="btn btn-outline">Explore Capabilities</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features & Capabilities -->
-        <section class="section" id="features">
-            <div class="container">
-                <div class="section-header">
-                    <div class="section-title">CORE CAPABILITIES</div>
-                    <h2 class="section-heading">Engineered for Scale & Reliability</h2>
-                </div>
-
-                <div class="cards-grid">
-                    <div class="card">
-                        <h3>Dynamic Module Loader</h3>
-                        <p>Hot-swap and register business modules dynamically at runtime. The core shell auto-mounts
-                            static assets, routes, and database initializers seamlessly without rebuilds.</p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Zero-Trust Multi-Tenancy</h3>
-                        <p>Mandatory <code>tenant_id</code> scoping enforced at the DB and API middleware layers from
-                            turn 1. Full data privacy guaranteed across all client organizations.</p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Automated GCP Pipeline</h3>
-                        <p>Native integration with Google Cloud Run, Secret Manager, Artifact Registry, and 2nd Gen
-                            Cloud Build triggers. Deploy directly from git repository tags.</p>
-                    </div>
-
-                    <div class="card">
-                        <h3>Google Identity SSO & RBAC</h3>
-                        <p>Cryptographic ID Token verification using <code>google-auth-library</code> with strict
-                            database-backed user authorization and role management.</p>
                     </div>
                 </div>
             </div>
@@ -890,6 +853,42 @@
                             <li>Multi-Stage Approval Routing</li>
                             <li>Immutable Audit History</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features & Capabilities -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">CORE CAPABILITIES</div>
+                    <h2 class="section-heading">Engineered for Scale & Reliability</h2>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Dynamic Module Loader</h3>
+                        <p>Hot-swap and register business modules dynamically at runtime. The core shell auto-mounts
+                            static assets, routes, and database initializers seamlessly without rebuilds.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Zero-Trust Multi-Tenancy</h3>
+                        <p>Mandatory <code>tenant_id</code> scoping enforced at the DB and API middleware layers from
+                            turn 1. Full data privacy guaranteed across all client organizations.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Automated GCP Pipeline</h3>
+                        <p>Native integration with Google Cloud Run, Secret Manager, Artifact Registry, and 2nd Gen
+                            Cloud Build triggers. Deploy directly from git repository tags.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Google Identity SSO & RBAC</h3>
+                        <p>Cryptographic ID Token verification using <code>google-auth-library</code> with strict
+                            database-backed user authorization and role management.</p>
                     </div>
                 </div>
             </div>

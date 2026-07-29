@@ -365,6 +365,12 @@
             border-top: 1px solid var(--border-color);
         }
 
+        .hero-cards-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
         .metric-card {
             background: var(--bg-surface);
             border: 1px solid var(--border-color);
@@ -795,47 +801,20 @@
                         </div>
                     </div>
 
-                    <!-- Platform Preview Card -->
-                    <div class="mockup-card">
-                        <div class="mockup-header">
-                            <div class="mockup-dots">
-                                <span class="dot dot-red"></span>
-                                <span class="dot dot-yellow"></span>
-                                <span class="dot dot-green"></span>
-                            </div>
-                            <span>Cloud Run Isolated</span>
+                    <!-- Hero Metric Cards Stack -->
+                    <div class="hero-cards-stack">
+                        <div class="metric-card">
+                            <div class="metric-value">Zero-Trust</div>
+                            <div class="metric-label">Tenant Database Isolation</div>
                         </div>
-                        <div class="mockup-body">
-                            <div class="mockup-stat">
-                                <span class="stat-name">Security Model</span>
-                                <span class="stat-val">Zero-Trust RBAC</span>
-                            </div>
-                            <div class="mockup-stat">
-                                <span class="stat-name">GCP Region</span>
-                                <span class="stat-val">Asia-South1</span>
-                            </div>
-                            <div class="mockup-code">
-                                <div class="code-cmd">$ ./scripts/setup-gcp.sh essai-11044</div>
-                                <div>--> Provisioning Cloud Run & Secrets...</div>
-                                <div class="code-success">✔ Setup Complete: 100% Isolated</div>
-                            </div>
+                        <div class="metric-card">
+                            <div class="metric-value">1-Click</div>
+                            <div class="metric-label">Google Cloud Run Deployment</div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Key Metrics Bar -->
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <div class="metric-value">Zero-Trust</div>
-                        <div class="metric-label">Tenant Database Isolation</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">1-Click</div>
-                        <div class="metric-label">Google Cloud Run Deployment</div>
-                    </div>
-                    <div class="metric-card">
-                        <div class="metric-value">Modular</div>
-                        <div class="metric-label">Dynamic Runtime Loader</div>
+                        <div class="metric-card">
+                            <div class="metric-value">Modular</div>
+                            <div class="metric-label">Dynamic Runtime Loader</div>
+                        </div>
                     </div>
                 </div>
             </div>

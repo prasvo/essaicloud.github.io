@@ -176,6 +176,12 @@
             color: var(--accent-blue);
         }
 
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         /* Mobile Hamburger Toggle */
         .mobile-toggle {
             display: none;
@@ -753,14 +759,15 @@
                     <li><a href="#modules" class="nav-link">Modules</a></li>
                     <li><a href="#features" class="nav-link">Capabilities</a></li>
                     <li><a href="#pricing" class="nav-link">Pricing</a></li>
-                    <li>
-                        <a href="mailto:support@essaicloud.com" class="btn btn-primary">Contact Sales</a>
-                    </li>
+                    <li><a href="mailto:support@essaicloud.com?subject=ESSAI%20Cloud%20Platform%20Inquiry" class="nav-link">Contact Sales</a></li>
                 </ul>
 
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
-                    ☰
-                </button>
+                <div class="header-actions">
+                    <a href="https://essai-wed5unnpha-el.a.run.app/" class="btn btn-primary">Sign In</a>
+                    <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                        ☰
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -769,7 +776,7 @@
             <a href="#modules" class="nav-link mobile-link">Modules</a>
             <a href="#features" class="nav-link mobile-link">Capabilities</a>
             <a href="#pricing" class="nav-link mobile-link">Pricing</a>
-            <a href="mailto:support@essaicloud.com" class="btn btn-primary">Contact Sales</a>
+            <a href="mailto:support@essaicloud.com?subject=ESSAI%20Cloud%20Platform%20Inquiry" class="nav-link mobile-link">Contact Sales</a>
         </div>
     </header>
 

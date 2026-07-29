@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <!-- Brilliant Bright Yellow Line Gradient -->
+    <linearGradient id="yellow-line-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF59D"/>
+      <stop offset="50%" stop-color="#FFEA00"/>
+      <stop offset="100%" stop-color="#FFD600"/>
+    </linearGradient>
+
+    <!-- High Contrast Yellow Glow Filter -->
+    <filter id="yellow-glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#FFEA00" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Transparent Background, No Fill -->
+
+  <!-- Perfectly Centered Larger 4 Interconnected Circles Assembly -->
+  <g filter="url(#yellow-glow)">
+    <!-- Top Circle -->
+    <circle cx="256" cy="165" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+
+    <!-- Right Circle -->
+    <circle cx="347" cy="256" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+
+    <!-- Bottom Circle -->
+    <circle cx="256" cy="347" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+
+    <!-- Left Circle -->
+    <circle cx="165" cy="256" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+  </g>
+</svg>

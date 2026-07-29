@@ -211,11 +211,9 @@
             border-bottom: 1px solid var(--border-color);
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 28px;
-            align-items: center;
+        .hero-content {
+            max-width: 780px;
+            margin: 0 auto;
         }
 
         .badge {
@@ -783,38 +781,20 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <div class="hero-grid">
-                    <div>
-                        <div class="badge">
-                            <span>•</span> Multi-Tenant Enterprise Platform Architecture
-                        </div>
-                        <h1>Modular Cloud Architecture for <span class="highlight">Modern Enterprise.</span></h1>
-                        <p class="hero-lead">
-                            Build, isolate, and scale feature modules on demand. ESSAI Cloud provides a hardened core
-                            shell with dynamic runtime module loading, zero-trust database isolation, and automated
-                            1-click Google Cloud deployment.
-                        </p>
-                        <div class="hero-cta">
-                            <a href="mailto:support@essaicloud.com?subject=ESSAI%20Cloud%20Platform%20Inquiry"
-                                class="btn btn-primary">Contact Sales</a>
-                            <a href="#features" class="btn btn-outline">Explore Capabilities</a>
-                        </div>
+                <div class="hero-content">
+                    <div class="badge">
+                        <span>•</span> Multi-Tenant Enterprise Platform Architecture
                     </div>
-
-                    <!-- Hero Metric Cards Stack -->
-                    <div class="hero-cards-stack">
-                        <div class="metric-card">
-                            <div class="metric-value">Zero-Trust</div>
-                            <div class="metric-label">Tenant Database Isolation</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">1-Click</div>
-                            <div class="metric-label">Google Cloud Run Deployment</div>
-                        </div>
-                        <div class="metric-card">
-                            <div class="metric-value">Modular</div>
-                            <div class="metric-label">Dynamic Runtime Loader</div>
-                        </div>
+                    <h1>Modular Cloud Architecture for <span class="highlight">Modern Enterprise.</span></h1>
+                    <p class="hero-lead">
+                        Build, isolate, and scale feature modules on demand. ESSAI Cloud provides a hardened core
+                        shell with dynamic runtime module loading, zero-trust database isolation, and automated
+                        1-click Google Cloud deployment.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="mailto:support@essaicloud.com?subject=ESSAI%20Cloud%20Platform%20Inquiry"
+                            class="btn btn-primary">Contact Sales</a>
+                        <a href="#features" class="btn btn-outline">Explore Capabilities</a>
                     </div>
                 </div>
             </div>

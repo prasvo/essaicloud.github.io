@@ -1,9 +1,8 @@
 /* ==========================================================================
-   ESSAI CLOUD - Design System & Modern CSS Stylesheet
+   ESSAI CLOUD - Core Website Module Stylesheet
    ========================================================================== */
 
 :root {
-    /* Color Tokens (Tailored Slate & Vibrant Electric Blue/Emerald Palette) */
     --bg-dark: #090d16;
     --bg-card: rgba(18, 26, 43, 0.7);
     --bg-card-hover: rgba(26, 38, 64, 0.85);
@@ -22,8 +21,6 @@
     --accent-gold: #f59e0b;
 
     --gradient-hero: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-    --gradient-card: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0) 100%);
-
     --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-display: 'Outfit', sans-serif;
 
@@ -31,7 +28,6 @@
     --shadow-glow: 0 0 40px -10px rgba(56, 189, 248, 0.3);
 }
 
-/* Reset & Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -50,7 +46,6 @@ body {
     line-height: 1.6;
 }
 
-/* Typography & Utilities */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
     color: var(--text-main);
@@ -731,7 +726,6 @@ a {
     color: var(--primary-blue);
 }
 
-/* Responsive Media Queries */
 @media (max-width: 992px) {
     .features-grid, .modules-cards-container, .pricing-grid {
         grid-template-columns: 1fr;

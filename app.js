@@ -1,10 +1,8 @@
-// Initialize Lucide Icons
 document.addEventListener('DOMContentLoaded', () => {
     if (window.lucide) {
         lucide.createIcons();
     }
 
-    // Navbar Blur / Scroll Shadow Effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 40) {
@@ -16,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Mockup Preview Tab Switcher
     const tabs = document.querySelectorAll('.mockup-sidebar .sidebar-item');
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {

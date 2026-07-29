@@ -972,7 +972,7 @@
         </div>
     </footer>
 
-    <!-- Minimal Mobile Toggle Script -->
+    <!-- Minimal Mobile Toggle & Smooth Scroll Script -->
     <script>
         const toggleBtn = document.getElementById('mobile-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -984,6 +984,19 @@
         document.querySelectorAll('.mobile-link').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('open');
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href').substring(1);
+                if (targetId) {
+                    const targetEl = document.getElementById(targetId);
+                    if (targetEl) {
+                        e.preventDefault();
+                        targetEl.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
             });
         });
     </script>

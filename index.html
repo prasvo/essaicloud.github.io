@@ -447,7 +447,7 @@
         /* Module Showcase Cards */
         .modules-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
 
@@ -459,6 +459,48 @@
             box-shadow: var(--shadow-sm);
             display: flex;
             flex-direction: column;
+        }
+
+        /* Dark Section Variant for Prebuilt Modules */
+        .section-dark {
+            background-color: #0F172A;
+            color: #F8FAFC;
+            border-color: #1E293B;
+        }
+
+        .section-dark .section-title {
+            color: #38BDF8;
+        }
+
+        .section-dark .section-heading {
+            color: #FFFFFF;
+        }
+
+        .section-dark .module-card {
+            background-color: #1E293B;
+            border-color: #334155;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .section-dark .module-card h3 {
+            color: #FFFFFF;
+        }
+
+        .section-dark .module-card p {
+            color: #94A3B8;
+        }
+
+        .section-dark .module-list {
+            border-top-color: #334155;
+        }
+
+        .section-dark .module-list li {
+            color: #CBD5E1;
+        }
+
+        .section-dark .module-tag {
+            color: #C084FC;
+            background: rgba(192, 132, 252, 0.15);
         }
 
         .module-tag {
@@ -836,7 +878,7 @@
         </section>
 
         <!-- Modules Showcase -->
-        <section class="section" id="modules">
+        <section class="section section-dark" id="modules">
             <div class="container">
                 <div class="section-header">
                     <div class="section-title">PLUG & PLAY MODULES</div>

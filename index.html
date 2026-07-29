@@ -4,349 +4,946 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESSAI Cloud | Enterprise Software Solutions & Automated Infrastructure</title>
-    <meta name="description" content="ESSAI Cloud is a next-generation multi-tenant enterprise SaaS platform featuring modular runtime architecture, zero-trust security, and 1-click Google Cloud deployment.">
-    <meta name="keywords" content="Enterprise SaaS, Multi-Tenant Architecture, Cloud Run, Secret Manager, Modular Software, Business Intelligence">
-    <meta name="author" content="ESSAI Cloud">
-
+    <title>ESSAI Cloud | Enterprise Multi-Tenant Platform & Automated Infrastructure</title>
+    <meta name="description" content="Modular multi-tenant enterprise SaaS platform with zero-trust database isolation, dynamic module loading, and automated Google Cloud deployment.">
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-body: #F8FAFC;
+            --bg-surface: #FFFFFF;
+            --bg-subtle: #F1F5F9;
+            --bg-accent-light: #F0F9FF;
+            --border-color: #E2E8F0;
+            --border-hover: #CBD5E1;
 
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+            --text-primary: #0F172A;
+            --text-secondary: #334155;
+            --text-muted: #64748B;
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+            --accent-blue: #0284C7;
+            --accent-blue-hover: #0369A1;
+            --accent-blue-subtle: rgba(2, 132, 199, 0.08);
+            --accent-green: #059669;
+            --accent-purple: #7C3AED;
+
+            --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-secondary);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header / Nav */
+        header {
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 800;
+            font-size: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent-blue), #2563EB);
+            color: #FFFFFF;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 800;
+        }
+
+        .logo-tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 7px;
+            background-color: var(--accent-blue-subtle);
+            color: var(--accent-blue);
+            border: 1px solid rgba(2, 132, 199, 0.2);
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-blue);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 9px 18px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 7px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--text-primary);
+            color: #FFFFFF;
+            border-color: var(--text-primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-blue);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: var(--bg-surface);
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--bg-subtle);
+            border-color: var(--border-hover);
+            color: var(--accent-blue);
+        }
+
+        /* Mobile Hamburger Toggle */
+        .mobile-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 12px;
+            cursor: pointer;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 20px;
+            gap: 12px;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 44px 0 36px;
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-body) 100%);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--accent-blue);
+            background-color: var(--accent-blue-subtle);
+            border: 1px solid rgba(2, 132, 199, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent-blue);
+            background: linear-gradient(120deg, #0284C7 0%, #2563EB 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-lead {
+            font-size: 0.975rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        /* Platform Preview Card */
+        .mockup-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .mockup-header {
+            background: var(--bg-subtle);
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .mockup-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #EF4444; }
+        .dot-yellow { background: #F59E0B; }
+        .dot-green { background: #10B981; }
+
+        .mockup-body {
+            padding: 16px;
+        }
+
+        .mockup-stat {
+            background: var(--bg-subtle);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .stat-name {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .stat-val {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+
+        .mockup-code {
+            background: #0F172A;
+            color: #F8FAFC;
+            border-radius: 8px;
+            padding: 12px;
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            line-height: 1.5;
+            word-break: break-all;
+        }
+
+        .code-cmd { color: var(--accent-blue); }
+        .code-success { color: #10B981; }
+
+        /* Metrics Bar */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .metric-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 16px 18px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .metric-value {
+            font-family: var(--font-mono);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 2px;
+        }
+
+        .metric-label {
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Section Layouts */
+        .section {
+            padding: 56px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 32px;
+        }
+
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 0.775rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+        }
+
+        .section-heading {
+            font-size: clamp(1.5rem, 2.5vw, 2rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+        }
+
+        /* Feature & Practice Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 24px 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.55;
+        }
+
+        /* Module Showcase Cards */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .module-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 22px 18px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .module-tag {
+            font-family: var(--font-mono);
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--accent-purple);
+            background: rgba(124, 58, 237, 0.08);
+            padding: 3px 8px;
+            border-radius: 4px;
+            align-self: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .module-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .module-card p {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 14px;
+            flex: 1;
+        }
+
+        .module-list {
+            list-style: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 10px;
+        }
+
+        .module-list li {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            padding: 4px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .module-list li::before {
+            content: "✓";
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* Pricing Grid */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .price-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 20px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .price-featured {
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow-md);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-blue);
+            color: #FFFFFF;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 2px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .price-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .price-val {
+            font-family: var(--font-mono);
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .price-val span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .price-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .price-list {
+            list-style: none;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .price-list li {
+            font-size: 0.825rem;
+            color: var(--text-secondary);
+            padding: 6px 0;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .price-list li::before {
+            content: "✓";
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+
+        /* CTA & Footer */
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+            background: radial-gradient(circle at center, rgba(2, 132, 199, 0.04) 0%, rgba(248, 250, 252, 0) 70%);
+        }
+
+        .cta-box {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            background-color: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            padding: 28px 32px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 28px 0;
+            font-size: 0.825rem;
+            color: var(--text-muted);
+            background-color: var(--bg-surface);
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Mobile Responsive Breakpoints */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .modules-grid,
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 14px;
+            }
+
+            .logo-tag,
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 28px 0 24px;
+            }
+
+            .section {
+                padding: 38px 0;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+
+            .cards-grid,
+            .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .card,
+            .module-card,
+            .price-card {
+                padding: 18px 14px;
+            }
+
+            .footer-wrapper {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
     <!-- Header Navigation -->
-    <header class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#" class="brand-logo" id="brand-logo-link">
-                <div class="logo-icon">
-                    <i data-lucide="layers"></i>
-                </div>
-                <span class="logo-text">ESSAI <span class="logo-accent">CLOUD</span></span>
-            </a>
-
-            <nav class="nav-links" id="nav-menu">
-                <a href="#features" class="nav-link" id="nav-features">Capabilities</a>
-                <a href="#architecture" class="nav-link" id="nav-architecture">Architecture</a>
-                <a href="#modules" class="nav-link" id="nav-modules">Modules</a>
-                <a href="#pricing" class="nav-link" id="nav-pricing">Pricing</a>
-            </nav>
-
-            <div class="nav-actions">
-                <a href="mailto:prasvo@gmail.com" class="btn btn-secondary" id="btn-request-demo">
-                    <i data-lucide="mail"></i>
-                    <span>Contact Sales</span>
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="brand-link">
+                    <div class="brand-logo-icon">E</div>
+                    <span>ESSAI CLOUD</span>
+                    <span class="logo-tag">Platform</span>
                 </a>
-                <a href="/" class="btn btn-primary" id="btn-launch-app">
-                    <i data-lucide="external-link"></i>
-                    <span>Live App</span>
-                </a>
+
+                <ul class="nav-links">
+                    <li><a href="#features" class="nav-link">Capabilities</a></li>
+                    <li><a href="#modules" class="nav-link">Modules</a></li>
+                    <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                    <li>
+                        <a href="mailto:prasvo@gmail.com" class="btn btn-primary">Contact Sales</a>
+                    </li>
+                </ul>
+
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation">
+                    ☰
+                </button>
             </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#features" class="nav-link mobile-link">Capabilities</a>
+            <a href="#modules" class="nav-link mobile-link">Modules</a>
+            <a href="#pricing" class="nav-link mobile-link">Pricing</a>
+            <a href="mailto:prasvo@gmail.com" class="btn btn-primary">Contact Sales</a>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <div class="hero-bg-glow"></div>
-        <div class="hero-container">
-            <div class="hero-badge" id="hero-badge">
-                <i data-lucide="sparkles"></i>
-                <span>Enterprise Software Solutions & Automated Infrastructure</span>
-            </div>
-
-            <h1 class="hero-title" id="hero-heading">
-                Modular Multi-Tenant Platform for <span class="gradient-text">Modern Enterprise</span>
-            </h1>
-
-            <p class="hero-subtitle" id="hero-subtext">
-                Build, isolate, and scale feature modules on demand. ESSAI Cloud provides a hardened core shell with dynamic runtime module loading, zero-trust database isolation, and automated 1-click Google Cloud deployment.
-            </p>
-
-            <div class="hero-cta-group">
-                <a href="/" class="btn btn-primary btn-lg" id="cta-hero-demo">
-                    <i data-lucide="rocket"></i>
-                    <span>Launch Live Platform</span>
-                </a>
-                <a href="#architecture" class="btn btn-outline btn-lg" id="cta-hero-architecture">
-                    <i data-lucide="cpu"></i>
-                    <span>Explore Architecture</span>
-                </a>
-            </div>
-
-            <!-- Interactive Platform Mockup Preview -->
-            <div class="platform-mockup" id="platform-preview-card">
-                <div class="mockup-header">
-                    <div class="mockup-dots">
-                        <span class="dot dot-red"></span>
-                        <span class="dot dot-yellow"></span>
-                        <span class="dot dot-green"></span>
-                    </div>
-                    <div class="mockup-title">essai-cloud-production.asia-south1.run.app</div>
-                    <div class="mockup-badge"><i data-lucide="shield-check"></i> Multi-Tenant Isolated</div>
-                </div>
-                <div class="mockup-body">
-                    <div class="mockup-sidebar">
-                        <div class="sidebar-item active" id="tab-overview"><i data-lucide="layout-dashboard"></i> Core Shell</div>
-                        <div class="sidebar-item" id="tab-lead"><i data-lucide="users"></i> Lead Engine</div>
-                        <div class="sidebar-item" id="tab-pharma"><i data-lucide="activity"></i> Pharma CRM</div>
-                        <div class="sidebar-item" id="tab-approve"><i data-lucide="check-circle-2"></i> Smart Approvals</div>
-                    </div>
-                    <div class="mockup-content">
-                        <div class="preview-card-grid">
-                            <div class="stat-card">
-                                <div class="stat-icon icon-blue"><i data-lucide="shield"></i></div>
-                                <div class="stat-info">
-                                    <span class="stat-label">Security Model</span>
-                                    <span class="stat-value">Zero-Trust RBAC</span>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon icon-purple"><i data-lucide="server"></i></div>
-                                <div class="stat-info">
-                                    <span class="stat-label">GCP Deployment</span>
-                                    <span class="stat-value">Cloud Run (Asia-South1)</span>
-                                </div>
-                            </div>
-                            <div class="stat-card">
-                                <div class="stat-icon icon-emerald"><i data-lucide="key-round"></i></div>
-                                <div class="stat-info">
-                                    <span class="stat-label">Secrets Vault</span>
-                                    <span class="stat-value">Secret Manager :latest</span>
-                                </div>
-                            </div>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-grid">
+                    <div>
+                        <div class="badge">
+                            <span>•</span> Multi-Tenant Enterprise Platform Architecture
                         </div>
+                        <h1>Modular Cloud Architecture for <span class="highlight">Modern Enterprise.</span></h1>
+                        <p class="hero-lead">
+                            Build, isolate, and scale feature modules on demand. ESSAI Cloud provides a hardened core shell with dynamic runtime module loading, zero-trust database isolation, and automated 1-click Google Cloud deployment.
+                        </p>
+                        <div class="hero-cta">
+                            <a href="mailto:prasvo@gmail.com?subject=ESSAI%20Cloud%20Platform%20Inquiry" class="btn btn-primary">Contact Executive Team</a>
+                            <a href="#features" class="btn btn-outline">Explore Capabilities</a>
+                        </div>
+                    </div>
 
-                        <div class="preview-terminal">
-                            <div class="terminal-line"><span class="term-prompt">$</span> <span class="term-cmd">./scripts/setup-gcp.sh essai-11044</span></div>
-                            <div class="terminal-line text-dim">--> Enabling GCP APIs (Run, Cloud Build, Secret Manager)...</div>
-                            <div class="terminal-line text-emerald">--> Provisioning 2nd Gen Artifact Registry & Connections...</div>
-                            <div class="terminal-line text-gold">✔ Brand New GCP Setup Complete! Live App URL: https://essai-712433139549.asia-south1.run.app</div>
+                    <!-- Platform Preview Card -->
+                    <div class="mockup-card">
+                        <div class="mockup-header">
+                            <div class="mockup-dots">
+                                <span class="dot dot-red"></span>
+                                <span class="dot dot-yellow"></span>
+                                <span class="dot dot-green"></span>
+                            </div>
+                            <span>Cloud Run Isolated</span>
+                        </div>
+                        <div class="mockup-body">
+                            <div class="mockup-stat">
+                                <span class="stat-name">Security Model</span>
+                                <span class="stat-val">Zero-Trust RBAC</span>
+                            </div>
+                            <div class="mockup-stat">
+                                <span class="stat-name">GCP Region</span>
+                                <span class="stat-val">Asia-South1</span>
+                            </div>
+                            <div class="mockup-code">
+                                <div class="code-cmd">$ ./scripts/setup-gcp.sh essai-11044</div>
+                                <div>--> Provisioning Cloud Run & Secrets...</div>
+                                <div class="code-success">✔ Setup Complete: 100% Isolated</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Architecture & Features Section -->
-    <section class="features-section" id="features">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">CORE CAPABILITIES</span>
-                <h2 class="section-title">Engineered for Reliability, Built for Scale</h2>
-                <p class="section-subtitle">A decoupled architecture designed to eliminate boilerplate code and ensure absolute tenant data safety.</p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card" id="card-modular-runtime">
-                    <div class="feature-icon"><i data-lucide="boxes"></i></div>
-                    <h3>Dynamic Module Loader</h3>
-                    <p>Hot-swap and register business modules dynamically at runtime. The core shell auto-mounts static assets, routes, and database initializers seamlessly.</p>
-                </div>
-
-                <div class="feature-card" id="card-tenant-isolation">
-                    <div class="feature-icon"><i data-lucide="lock"></i></div>
-                    <h3>Zero-Trust Multi-Tenancy</h3>
-                    <p>Mandatory <code>tenant_id</code> scoping enforced at the DB and API middleware layers from turn 1. Full data privacy guaranteed across all client organizations.</p>
-                </div>
-
-                <div class="feature-card" id="card-gcp-pipeline">
-                    <div class="feature-icon"><i data-lucide="cloud"></i></div>
-                    <h3>Automated GCP Pipeline</h3>
-                    <p>Native integration with Google Cloud Run, Secret Manager, Artifact Registry, and 2nd Gen Cloud Build triggers. Deploy from git tag with <code>npm run tag</code>.</p>
-                </div>
-
-                <div class="feature-card" id="card-google-sso">
-                    <div class="feature-icon"><i data-lucide="user-check"></i></div>
-                    <h3>Google Identity SSO & RBAC</h3>
-                    <p>Cryptographic ID Token verification using <code>google-auth-library</code> with strict database-backed whitelist user authorization.</p>
+                <!-- Key Metrics Bar -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">Zero-Trust</div>
+                        <div class="metric-label">Tenant Database Isolation</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">1-Click</div>
+                        <div class="metric-label">Google Cloud Run Deployment</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">Modular</div>
+                        <div class="metric-label">Dynamic Runtime Loader</div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Architecture & Tech Stack -->
-    <section class="tech-section" id="architecture">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">ENTERPRISE TECH STACK</span>
-                <h2 class="section-title">Clean, Performant & Lightweight</h2>
-                <p class="section-subtitle">No redundant overhead or heavy frameworks—just pure, high-speed execution.</p>
-            </div>
+        <!-- Features & Capabilities -->
+        <section class="section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">CORE CAPABILITIES</div>
+                    <h2 class="section-heading">Engineered for Scale & Reliability</h2>
+                </div>
 
-            <div class="tech-grid">
-                <div class="tech-item" id="tech-express">
-                    <i data-lucide="cpu"></i>
-                    <h4>Node.js & Express</h4>
-                    <p>High-throughput backend server handling modular REST APIs.</p>
-                </div>
-                <div class="tech-item" id="tech-turso">
-                    <i data-lucide="database"></i>
-                    <h4>Turso & SQLite</h4>
-                    <p>Distributed edge database with tenant-isolated SQL tables.</p>
-                </div>
-                <div class="tech-item" id="tech-gcp">
-                    <i data-lucide="cloud-lightning"></i>
-                    <h4>Google Cloud Run</h4>
-                    <p>Serverless container execution scaling automatically from zero.</p>
-                </div>
-                <div class="tech-item" id="tech-secrets">
-                    <i data-lucide="key"></i>
-                    <h4>Secret Manager</h4>
-                    <p>Centralized cross-project secret storage (`:latest` version binding).</p>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Dynamic Module Loader</h3>
+                        <p>Hot-swap and register business modules dynamically at runtime. The core shell auto-mounts static assets, routes, and database initializers seamlessly without rebuilds.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Zero-Trust Multi-Tenancy</h3>
+                        <p>Mandatory <code>tenant_id</code> scoping enforced at the DB and API middleware layers from turn 1. Full data privacy guaranteed across all client organizations.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Automated GCP Pipeline</h3>
+                        <p>Native integration with Google Cloud Run, Secret Manager, Artifact Registry, and 2nd Gen Cloud Build triggers. Deploy directly from git repository tags.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Google Identity SSO & RBAC</h3>
+                        <p>Cryptographic ID Token verification using <code>google-auth-library</code> with strict database-backed user authorization and role management.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Module Showcase -->
-    <section class="modules-section" id="modules">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">PLUG & PLAY MODULES</span>
-                <h2 class="section-title">Pre-Built Enterprise Applications</h2>
-                <p class="section-subtitle">Turn key business modules available out of the box.</p>
-            </div>
-
-            <div class="modules-cards-container">
-                <div class="module-banner-card" id="module-pharma">
-                    <div class="module-badge">Pharma & Life Sciences</div>
-                    <h3>Pharma CRM & Compliance</h3>
-                    <p>Specialized workflow module for managing pharmaceutical sales representatives, product samples, call reporting, and compliance tracking.</p>
-                    <ul class="module-specs">
-                        <li><i data-lucide="check"></i> Territory & Call Reporting</li>
-                        <li><i data-lucide="check"></i> Doctor Sample Management</li>
-                        <li><i data-lucide="check"></i> Audit Compliance Logs</li>
-                    </ul>
+        <!-- Modules Showcase -->
+        <section class="section" id="modules">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">PLUG & PLAY MODULES</div>
+                    <h2 class="section-heading">Pre-Built Enterprise Applications</h2>
                 </div>
 
-                <div class="module-banner-card" id="module-lead">
-                    <div class="module-badge">Sales Engine</div>
-                    <h3>Lead Engine & Pipeline</h3>
-                    <p>Complete B2B sales pipeline management with stage tracking, lead scoring, activity history, and real-time conversion analytics.</p>
-                    <ul class="module-specs">
-                        <li><i data-lucide="check"></i> Dynamic Lead Stages</li>
-                        <li><i data-lucide="check"></i> Multi-Tenant Access Control</li>
-                        <li><i data-lucide="check"></i> Clean API Integration</li>
-                    </ul>
-                </div>
+                <div class="modules-grid">
+                    <div class="module-card">
+                        <span class="module-tag">Pharma & Life Sciences</span>
+                        <h3>Pharma CRM & Compliance</h3>
+                        <p>Specialized workflow module for managing pharmaceutical sales representatives, product samples, call reporting, and compliance tracking.</p>
+                        <ul class="module-list">
+                            <li>Territory & Call Reporting</li>
+                            <li>Doctor Sample Management</li>
+                            <li>Audit Compliance Logs</li>
+                        </ul>
+                    </div>
 
-                <div class="module-banner-card" id="module-approve">
-                    <div class="module-badge">Workflow Automation</div>
-                    <h3>Smart Approvals</h3>
-                    <p>Multi-level document and expense approval routing engine with automated Gmail integration scripts for instant decisioning.</p>
-                    <ul class="module-specs">
-                        <li><i data-lucide="check"></i> Automated Email Approval Triggers</li>
-                        <li><i data-lucide="check"></i> Multi-Stage Approval Routing</li>
-                        <li><i data-lucide="check"></i> Immutable Audit History</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <div class="module-card">
+                        <span class="module-tag">Sales Engine</span>
+                        <h3>Lead Engine & Pipeline</h3>
+                        <p>Complete B2B sales pipeline management with stage tracking, lead scoring, activity history, and real-time conversion analytics.</p>
+                        <ul class="module-list">
+                            <li>Dynamic Lead Stages</li>
+                            <li>Multi-Tenant Access Control</li>
+                            <li>Clean REST API Integration</li>
+                        </ul>
+                    </div>
 
-    <!-- Pricing Section -->
-    <section class="pricing-section" id="pricing">
-        <div class="section-container">
-            <div class="section-header">
-                <span class="section-badge">TRANSPARENT PRICING</span>
-                <h2 class="section-title">Flexible Plans for Growing Enterprises</h2>
-                <p class="section-subtitle">Deploy on your own GCP infrastructure or host on ESSAI Cloud managed platform.</p>
-            </div>
-
-            <div class="pricing-grid">
-                <div class="price-card" id="price-card-starter">
-                    <div class="price-plan">Starter Sandbox</div>
-                    <div class="price-amount">$0 <span>/ month</span></div>
-                    <p class="price-desc">Trial cloud workspace for evaluation, testing, and initial sandbox setup.</p>
-                    <ul class="price-features">
-                        <li><i data-lucide="check"></i> Live Production Sandbox Access</li>
-                        <li><i data-lucide="check"></i> Standard Feature Modules</li>
-                        <li><i data-lucide="check"></i> Single Tenant Environment</li>
-                        <li><i data-lucide="check"></i> Direct Email Support</li>
-                    </ul>
-                    <a href="/" class="btn btn-outline btn-full" id="btn-pricing-starter">Try Sandbox</a>
-                </div>
-
-                <div class="price-card price-featured" id="price-card-pro">
-                    <div class="featured-tag">MOST POPULAR</div>
-                    <div class="price-plan">Business Cloud</div>
-                    <div class="price-amount">$49 <span>/ month</span></div>
-                    <p class="price-desc">Fully managed ESSAI Cloud instance with automated backups and 24/7 monitoring.</p>
-                    <ul class="price-features">
-                        <li><i data-lucide="check"></i> Unlimited Tenants & Users</li>
-                        <li><i data-lucide="check"></i> All Standard + Pharma Modules</li>
-                        <li><i data-lucide="check"></i> Dedicated Cloud Run Instance</li>
-                        <li><i data-lucide="check"></i> Automated Daily DB Backups</li>
-                        <li><i data-lucide="check"></i> Priority Tech Support</li>
-                    </ul>
-                    <a href="/" class="btn btn-primary btn-full" id="btn-pricing-pro">Start Free Trial</a>
-                </div>
-
-                <div class="price-card" id="price-card-enterprise">
-                    <div class="price-plan">Enterprise Custom</div>
-                    <div class="price-amount">Custom</div>
-                    <p class="price-desc">Custom module development, dedicated VPC peering, and SLA guarantees.</p>
-                    <ul class="price-features">
-                        <li><i data-lucide="check"></i> Custom Feature Module Development</li>
-                        <li><i data-lucide="check"></i> Private GCP VPC & IAM Hardening</li>
-                        <li><i data-lucide="check"></i> 99.9% Uptime SLA Agreement</li>
-                        <li><i data-lucide="check"></i> Dedicated Solutions Architect</li>
-                    </ul>
-                    <a href="mailto:prasvo@gmail.com" class="btn btn-outline btn-full" id="btn-pricing-enterprise">Contact Enterprise Sales</a>
+                    <div class="module-card">
+                        <span class="module-tag">Workflow Automation</span>
+                        <h3>Smart Approvals</h3>
+                        <p>Multi-level document and expense approval routing engine with automated Gmail integration scripts for instant decisioning.</p>
+                        <ul class="module-list">
+                            <li>Automated Email Triggers</li>
+                            <li>Multi-Stage Approval Routing</li>
+                            <li>Immutable Audit History</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-title">TRANSPARENT PRICING</div>
+                    <h2 class="section-heading">Flexible Plans for Enterprises</h2>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <div class="price-name">Starter Sandbox</div>
+                        <div class="price-val">$0 <span>/ month</span></div>
+                        <div class="price-desc">Trial cloud workspace for evaluation, testing, and initial sandbox setup.</div>
+                        <ul class="price-list">
+                            <li>Production Sandbox Access</li>
+                            <li>Standard Feature Modules</li>
+                            <li>Single Tenant Environment</li>
+                            <li>Direct Email Support</li>
+                        </ul>
+                        <a href="mailto:prasvo@gmail.com" class="btn btn-outline">Try Sandbox</a>
+                    </div>
+
+                    <div class="price-card price-featured">
+                        <div class="featured-badge">Most Popular</div>
+                        <div class="price-name">Business Cloud</div>
+                        <div class="price-val">$49 <span>/ month</span></div>
+                        <div class="price-desc">Fully managed ESSAI Cloud instance with automated backups and 24/7 monitoring.</div>
+                        <ul class="price-list">
+                            <li>Unlimited Tenants & Users</li>
+                            <li>All Standard + Pharma Modules</li>
+                            <li>Dedicated Cloud Run Instance</li>
+                            <li>Automated Daily DB Backups</li>
+                        </ul>
+                        <a href="mailto:prasvo@gmail.com" class="btn btn-primary">Start Free Trial</a>
+                    </div>
+
+                    <div class="price-card">
+                        <div class="price-name">Enterprise Custom</div>
+                        <div class="price-val">Custom</div>
+                        <div class="price-desc">Custom module development, dedicated VPC peering, and SLA guarantees.</div>
+                        <ul class="price-list">
+                            <li>Custom Module Development</li>
+                            <li>Private GCP VPC & IAM Hardening</li>
+                            <li>99.9% Uptime SLA Agreement</li>
+                            <li>Dedicated Architect</li>
+                        </ul>
+                        <a href="mailto:prasvo@gmail.com" class="btn btn-outline">Contact Sales</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-box">
+                    <h2>Ready to Scale Your Enterprise Software?</h2>
+                    <p>Contact our solutions engineering team for a platform walkthrough.</p>
+                    <a href="mailto:prasvo@gmail.com" class="btn btn-primary">Contact prasvo@gmail.com</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <div class="brand-logo">
-                    <div class="logo-icon">
-                        <i data-lucide="layers"></i>
-                    </div>
-                    <span class="logo-text">ESSAI <span class="logo-accent">CLOUD</span></span>
-                </div>
-                <p class="footer-tagline">
-                    Enterprise Software Solutions & Automated Infrastructure
-                </p>
-                <p class="footer-copy">&copy; 2026 ESSAI Cloud. All rights reserved.</p>
-            </div>
-
-            <div class="footer-links-group">
-                <div class="footer-col">
-                    <h5>Platform</h5>
-                    <a href="#features">Capabilities</a>
-                    <a href="#architecture">Architecture</a>
-                    <a href="#modules">Pre-Built Modules</a>
-                    <a href="#pricing">Pricing</a>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Live Applications</h5>
-                    <a href="/">Production App</a>
-                    <a href="#features">Capabilities</a>
-                    <a href="#pricing">Pricing Plans</a>
-                </div>
-
-                <div class="footer-col">
-                    <h5>Contact & Sales</h5>
-                    <a href="mailto:prasvo@gmail.com">prasvo@gmail.com</a>
-                </div>
+    <footer>
+        <div class="container">
+            <div class="footer-wrapper">
+                <div>&copy; 2026 ESSAI Cloud. Enterprise Multi-Tenant Platform.</div>
+                <div><a href="mailto:prasvo@gmail.com" style="color: inherit; text-decoration: none;">prasvo@gmail.com</a></div>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript logic -->
-    <script src="app.js"></script>
+    <!-- Minimal Mobile Toggle Script -->
+    <script>
+        const toggleBtn = document.getElementById('mobile-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        toggleBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>

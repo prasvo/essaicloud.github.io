@@ -7,7 +7,7 @@
       <stop offset="100%" stop-color="#FFD600"/>
     </linearGradient>
 
-    <!-- High Contrast Yellow Glow Filter -->
+    <!-- High Contrast Yellow Glow Filter (Expanded bounds to prevent drop-shadow edge clipping) -->
     <filter id="yellow-glow" x="-20%" y="-20%" width="140%" height="140%">
       <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#FFEA00" flood-opacity="0.6"/>
     </filter>
@@ -15,18 +15,18 @@
 
   <!-- Transparent Background, No Fill -->
 
-  <!-- Perfectly Centered Larger 4 Interconnected Circles Assembly -->
+  <!-- Perfectly Centered 4 Interconnected Circles Assembly -->
   <g filter="url(#yellow-glow)">
     <!-- Top Circle -->
-    <circle cx="256" cy="165" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+    <circle cx="256" cy="178" r="105" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
 
     <!-- Right Circle -->
-    <circle cx="347" cy="256" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+    <circle cx="334" cy="256" r="105" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
 
     <!-- Bottom Circle -->
-    <circle cx="256" cy="347" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+    <circle cx="256" cy="334" r="105" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
 
     <!-- Left Circle -->
-    <circle cx="165" cy="256" r="125" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
+    <circle cx="178" cy="256" r="105" fill="none" stroke="url(#yellow-line-grad)" stroke-width="20"/>
   </g>
 </svg>

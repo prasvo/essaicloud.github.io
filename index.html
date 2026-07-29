@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESSAI Cloud | Enterprise Software Solutions & Automated Infrastructure</title>
+    <meta name="description" content="ESSAI Cloud is a next-generation multi-tenant enterprise SaaS platform featuring modular runtime architecture, zero-trust security, and 1-click Google Cloud deployment.">
+    <meta name="keywords" content="Enterprise SaaS, Multi-Tenant Architecture, Cloud Run, Secret Manager, Modular Software, Business Intelligence">
+    <meta name="author" content="ESSAI Cloud">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://essaicloud.github.io/">
+    <meta property="og:title" content="ESSAI Cloud | Enterprise Software Solutions">
+    <meta property="og:description" content="Build, deploy, and scale multi-tenant SaaS applications with modular architecture and zero-trust security.">
+    <meta property="og:image" content="https://essaicloud.github.io/og-image.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo" id="brand-logo-link">
+                <div class="logo-icon">
+                    <i data-lucide="layers"></i>
+                </div>
+                <span class="logo-text">ESSAI <span class="logo-accent">CLOUD</span></span>
+            </a>
+
+            <nav class="nav-links" id="nav-menu">
+                <a href="#features" class="nav-link" id="nav-features">Capabilities</a>
+                <a href="#architecture" class="nav-link" id="nav-architecture">Architecture</a>
+                <a href="#modules" class="nav-link" id="nav-modules">Modules</a>
+                <a href="#pricing" class="nav-link" id="nav-pricing">Pricing</a>
+            </nav>
+
+            <div class="nav-actions">
+                <a href="https://github.com/prasvo/essai" target="_blank" rel="noopener" class="btn btn-secondary" id="btn-github">
+                    <i data-lucide="github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://essai-712433139549.asia-south1.run.app" target="_blank" rel="noopener" class="btn btn-primary" id="btn-launch-app">
+                    <i data-lucide="external-link"></i>
+                    <span>Live App</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-container">
+            <div class="hero-badge" id="hero-badge">
+                <i data-lucide="sparkles"></i>
+                <span>Enterprise Software Solutions & Automated Infrastructure</span>
+            </div>
+
+            <h1 class="hero-title" id="hero-heading">
+                Modular Multi-Tenant Platform for <span class="gradient-text">Modern Enterprise</span>
+            </h1>
+
+            <p class="hero-subtitle" id="hero-subtext">
+                Build, isolate, and scale feature modules on demand. ESSAI Cloud provides a hardened core shell with dynamic runtime module loading, zero-trust database isolation, and automated 1-click Google Cloud deployment.
+            </p>
+
+            <div class="hero-cta-group">
+                <a href="https://essai-712433139549.asia-south1.run.app" target="_blank" rel="noopener" class="btn btn-primary btn-lg" id="cta-hero-demo">
+                    <i data-lucide="rocket"></i>
+                    <span>Launch Live Platform</span>
+                </a>
+                <a href="#architecture" class="btn btn-outline btn-lg" id="cta-hero-architecture">
+                    <i data-lucide="cpu"></i>
+                    <span>Explore Architecture</span>
+                </a>
+            </div>
+
+            <!-- Interactive Platform Mockup Preview -->
+            <div class="platform-mockup" id="platform-preview-card">
+                <div class="mockup-header">
+                    <div class="mockup-dots">
+                        <span class="dot dot-red"></span>
+                        <span class="dot dot-yellow"></span>
+                        <span class="dot dot-green"></span>
+                    </div>
+                    <div class="mockup-title">essai-cloud-production.asia-south1.run.app</div>
+                    <div class="mockup-badge"><i data-lucide="shield-check"></i> Multi-Tenant Isolated</div>
+                </div>
+                <div class="mockup-body">
+                    <div class="mockup-sidebar">
+                        <div class="sidebar-item active" id="tab-overview"><i data-lucide="layout-dashboard"></i> Core Shell</div>
+                        <div class="sidebar-item" id="tab-lead"><i data-lucide="users"></i> Lead Engine</div>
+                        <div class="sidebar-item" id="tab-pharma"><i data-lucide="activity"></i> Pharma CRM</div>
+                        <div class="sidebar-item" id="tab-approve"><i data-lucide="check-circle-2"></i> Smart Approvals</div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="preview-card-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon icon-blue"><i data-lucide="shield"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Security Model</span>
+                                    <span class="stat-value">Zero-Trust RBAC</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-purple"><i data-lucide="server"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-label">GCP Deployment</span>
+                                    <span class="stat-value">Cloud Run (Asia-South1)</span>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-emerald"><i data-lucide="key-round"></i></div>
+                                <div class="stat-info">
+                                    <span class="stat-label">Secrets Vault</span>
+                                    <span class="stat-value">Secret Manager :latest</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="preview-terminal">
+                            <div class="terminal-line"><span class="term-prompt">$</span> <span class="term-cmd">./scripts/setup-gcp.sh essai-11044</span></div>
+                            <div class="terminal-line text-dim">--> Enabling GCP APIs (Run, Cloud Build, Secret Manager)...</div>
+                            <div class="terminal-line text-emerald">--> Provisioning 2nd Gen Artifact Registry & Connections...</div>
+                            <div class="terminal-line text-gold">✔ Brand New GCP Setup Complete! Live App URL: https://essai-712433139549.asia-south1.run.app</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Features Section -->
+    <section class="features-section" id="features">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">CORE CAPABILITIES</span>
+                <h2 class="section-title">Engineered for Reliability, Built for Scale</h2>
+                <p class="section-subtitle">A decoupled architecture designed to eliminate boilerplate code and ensure absolute tenant data safety.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card" id="card-modular-runtime">
+                    <div class="feature-icon"><i data-lucide="boxes"></i></div>
+                    <h3>Dynamic Module Loader</h3>
+                    <p>Hot-swap and register business modules dynamically at runtime. The core shell auto-mounts static assets, routes, and database initializers seamlessly.</p>
+                </div>
+
+                <div class="feature-card" id="card-tenant-isolation">
+                    <div class="feature-icon"><i data-lucide="lock"></i></div>
+                    <h3>Zero-Trust Multi-Tenancy</h3>
+                    <p>Mandatory <code>tenant_id</code> scoping enforced at the DB and API middleware layers from turn 1. Full data privacy guaranteed across all client organizations.</p>
+                </div>
+
+                <div class="feature-card" id="card-gcp-pipeline">
+                    <div class="feature-icon"><i data-lucide="cloud"></i></div>
+                    <h3>Automated GCP Pipeline</h3>
+                    <p>Native integration with Google Cloud Run, Secret Manager, Artifact Registry, and 2nd Gen Cloud Build triggers. Deploy from git tag with <code>npm run tag</code>.</p>
+                </div>
+
+                <div class="feature-card" id="card-google-sso">
+                    <div class="feature-icon"><i data-lucide="user-check"></i></div>
+                    <h3>Google Identity SSO & RBAC</h3>
+                    <p>Cryptographic ID Token verification using <code>google-auth-library</code> with strict database-backed whitelist user authorization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Tech Stack -->
+    <section class="tech-section" id="architecture">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">ENTERPRISE TECH STACK</span>
+                <h2 class="section-title">Clean, Performant & Lightweight</h2>
+                <p class="section-subtitle">No redundant overhead or heavy frameworks—just pure, high-speed execution.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-item" id="tech-express">
+                    <i data-lucide="cpu"></i>
+                    <h4>Node.js & Express</h4>
+                    <p>High-throughput backend server handling modular REST APIs.</p>
+                </div>
+                <div class="tech-item" id="tech-turso">
+                    <i data-lucide="database"></i>
+                    <h4>Turso & SQLite</h4>
+                    <p>Distributed edge database with tenant-isolated SQL tables.</p>
+                </div>
+                <div class="tech-item" id="tech-gcp">
+                    <i data-lucide="cloud-lightning"></i>
+                    <h4>Google Cloud Run</h4>
+                    <p>Serverless container execution scaling automatically from zero.</p>
+                </div>
+                <div class="tech-item" id="tech-secrets">
+                    <i data-lucide="key"></i>
+                    <h4>Secret Manager</h4>
+                    <p>Centralized cross-project secret storage (`:latest` version binding).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Module Showcase -->
+    <section class="modules-section" id="modules">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">PLUG & PLAY MODULES</span>
+                <h2 class="section-title">Pre-Built Enterprise Applications</h2>
+                <p class="section-subtitle">Turn key business modules available out of the box.</p>
+            </div>
+
+            <div class="modules-cards-container">
+                <div class="module-banner-card" id="module-pharma">
+                    <div class="module-badge">Pharma & Life Sciences</div>
+                    <h3>Pharma CRM & Compliance</h3>
+                    <p>Specialized workflow module for managing pharmaceutical sales representatives, product samples, call reporting, and compliance tracking.</p>
+                    <ul class="module-specs">
+                        <li><i data-lucide="check"></i> Territory & Call Reporting</li>
+                        <li><i data-lucide="check"></i> Doctor Sample Management</li>
+                        <li><i data-lucide="check"></i> Audit Compliance Logs</li>
+                    </ul>
+                </div>
+
+                <div class="module-banner-card" id="module-lead">
+                    <div class="module-badge">Sales Engine</div>
+                    <h3>Lead Engine & Pipeline</h3>
+                    <p>Complete B2B sales pipeline management with stage tracking, lead scoring, activity history, and real-time conversion analytics.</p>
+                    <ul class="module-specs">
+                        <li><i data-lucide="check"></i> Dynamic Lead Stages</li>
+                        <li><i data-lucide="check"></i> Multi-Tenant Access Control</li>
+                        <li><i data-lucide="check"></i> Clean API Integration</li>
+                    </ul>
+                </div>
+
+                <div class="module-banner-card" id="module-approve">
+                    <div class="module-badge">Workflow Automation</div>
+                    <h3>Smart Approvals</h3>
+                    <p>Multi-level document and expense approval routing engine with automated Gmail integration scripts for instant decisioning.</p>
+                    <ul class="module-specs">
+                        <li><i data-lucide="check"></i> Automated Email Approval Triggers</li>
+                        <li><i data-lucide="check"></i> Multi-Stage Approval Routing</li>
+                        <li><i data-lucide="check"></i> Immutable Audit History</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-badge">TRANSPARENT PRICING</span>
+                <h2 class="section-title">Flexible Plans for Growing Enterprises</h2>
+                <p class="section-subtitle">Deploy on your own GCP infrastructure or host on ESSAI Cloud managed platform.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="price-card" id="price-card-community">
+                    <div class="price-plan">Community</div>
+                    <div class="price-amount">$0 <span>/ month</span></div>
+                    <p class="price-desc">Self-hosted on your own GCP project using our open automated script.</p>
+                    <ul class="price-features">
+                        <li><i data-lucide="check"></i> 1-Click `./scripts/setup-gcp.sh`</li>
+                        <li><i data-lucide="check"></i> Complete Core Shell Codebase</li>
+                        <li><i data-lucide="check"></i> Standard Feature Modules</li>
+                        <li><i data-lucide="check"></i> Community GitHub Support</li>
+                    </ul>
+                    <a href="https://github.com/prasvo/essai" target="_blank" rel="noopener" class="btn btn-outline btn-full" id="btn-pricing-community">View Source Code</a>
+                </div>
+
+                <div class="price-card price-featured" id="price-card-pro">
+                    <div class="featured-tag">MOST POPULAR</div>
+                    <div class="price-plan">Business Cloud</div>
+                    <div class="price-amount">$49 <span>/ month</span></div>
+                    <p class="price-desc">Fully managed ESSAI Cloud instance with automated backups and 24/7 monitoring.</p>
+                    <ul class="price-features">
+                        <li><i data-lucide="check"></i> Unlimited Tenants & Users</li>
+                        <li><i data-lucide="check"></i> All Standard + Pharma Modules</li>
+                        <li><i data-lucide="check"></i> Dedicated Cloud Run Instance</li>
+                        <li><i data-lucide="check"></i> Automated Daily DB Backups</li>
+                        <li><i data-lucide="check"></i> Priority Tech Support</li>
+                    </ul>
+                    <a href="https://essai-712433139549.asia-south1.run.app" target="_blank" rel="noopener" class="btn btn-primary btn-full" id="btn-pricing-pro">Start Free Trial</a>
+                </div>
+
+                <div class="price-card" id="price-card-enterprise">
+                    <div class="price-plan">Enterprise Custom</div>
+                    <div class="price-amount">Custom</div>
+                    <p class="price-desc">Custom module development, dedicated VPC peering, and SLA guarantees.</p>
+                    <ul class="price-features">
+                        <li><i data-lucide="check"></i> Custom Feature Module Development</li>
+                        <li><i data-lucide="check"></i> Private GCP VPC & IAM Hardening</li>
+                        <li><i data-lucide="check"></i> 99.9% Uptime SLA Agreement</li>
+                        <li><i data-lucide="check"></i> Dedicated Solutions Architect</li>
+                    </ul>
+                    <a href="mailto:prasvo@gmail.com" class="btn btn-outline btn-full" id="btn-pricing-enterprise">Contact Enterprise Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <div class="logo-icon">
+                        <i data-lucide="layers"></i>
+                    </div>
+                    <span class="logo-text">ESSAI <span class="logo-accent">CLOUD</span></span>
+                </div>
+                <p class="footer-tagline">
+                    Enterprise Software Solutions & Automated Infrastructure
+                </p>
+                <p class="footer-copy">&copy; 2026 ESSAI Cloud. All rights reserved.</p>
+            </div>
+
+            <div class="footer-links-group">
+                <div class="footer-col">
+                    <h5>Platform</h5>
+                    <a href="#features">Capabilities</a>
+                    <a href="#architecture">Architecture</a>
+                    <a href="#modules">Pre-Built Modules</a>
+                    <a href="#pricing">Pricing</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Live Applications</h5>
+                    <a href="https://essai-712433139549.asia-south1.run.app" target="_blank" rel="noopener">Production App</a>
+                    <a href="https://github.com/prasvo/essai" target="_blank" rel="noopener">GitHub Repository</a>
+                    <a href="https://console.cloud.google.com/run" target="_blank" rel="noopener">GCP Cloud Run Console</a>
+                </div>
+
+                <div class="footer-col">
+                    <h5>Contact & Sales</h5>
+                    <a href="mailto:prasvo@gmail.com">prasvo@gmail.com</a>
+                    <a href="https://essaicloud.github.io/">essaicloud.github.io</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script src="app.js"></script>
+</body>
+</html>
